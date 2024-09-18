@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>forget</title>
+    <link rel="stylesheet" href="forget.css">
+</head>
+<body>
+    <section>
+        <div class="forget-box">
+            <form id="form">
+                <h2>Forget</h2>
+                <div class="input-box">
+                    <label for="email">Email</label>
+                    <input type="email" id="forget-email" required>
+                </div>
+                <div class="input-box">
+                    <select name="securityQuestion" style="width: 100%; background: transparent; border: none;color: white; outline: none;">
+                        <option value="select" style="color: black;">Select security question?</option>
+                        <option value="op1" style="color: black;">what is your pet name?</option>
+                        <option value="op2" style="color: black;">What is your school name?</option>
+                        <option value="op3" style="color: black;">what is your favourite person name?</option>
+                        <option value="op4" style="color: black;">what is your favourite number?</option>
+                    </select>
+                </div>
+                <div class="input-box">
+                    <input type="text" id="securityAnswer" placeholder="Answer" required>
+                </div>
+                <div class="input-box">
+                    <label for="password">New-Password</label>
+                    <input type="password" id="forget-password" required disabled>
+                </div>
+                <div class="input-box">
+                    <label for="password">confirm-Password</label>
+                    <input type="password" id="confirm-forget-password" required disabled>
+                </div>
+                <button type="submit">submit</button>
+            </form>
+        </div>
+    </section>
+    <script src="regdscript.js"></script>
+</body>
+</html>

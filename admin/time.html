@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+    <link rel="shortcut icon" href="./images/logo.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="time.css">
+
+    <style>
+        body{
+            overflow: hidden;
+            overflow-y: scroll;
+            overflow-x: hidden;
+                }
+        header{position: relative;}
+        .exam{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            height: 80vh;
+            width: 80%;
+            margin: auto;
+        }
+        table,tr,td,th{
+                text-align:center;
+                border:1px solid black;
+                border-collapse: collapse;
+            }
+            li{
+                margin-right: 150px;
+                float:left
+            }
+            body {
+        overflow-y: scroll; /* Add vertical scrollbar */
+        overflow-x: hidden; /* Hide horizontal scrollbar */
+    }
+    header {
+        position: relative;
+    }
+    .exam {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        height: 80vh;
+        width: 80%;
+        margin: auto;
+    }
+    table, tr, td, th {
+        text-align: center;
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+    li {
+        margin-right: 150px;
+        float: left;
+    }
+    .profile-photo1 {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%; /* Creates a circular shape */
+            margin-right: 20px; /* Add some spacing between photo and content */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo" title="University Management System">
+            <h2>AI<span class="danger">&</span>ML</h2>
+        </div>
+        <div class="navbar">
+            <a href="index.html">
+                <span class="material-icons-sharp">home</span>
+                <h3>Home</h3>
+            </a>
+            <a href="time.html" class="active">
+                <span class="material-icons-sharp">today</span>
+                <h3>Time Table</h3>
+            </a> 
+            <a href="stu.html">
+                <span class="material-icons-sharp">grid_view</span>
+                <h3>Student Details</h3>
+            </a>
+            <a href="faculty.html">
+                <span class="material-icons-sharp">person</span>
+                <h3>Faculty Details</h3>
+            </a>
+            <a href="achindex.html">
+                <span class="material-icons-sharp">&#127894</span>
+                <h3>Acheivements</h3>
+            </a>
+            <a href="#" class="menu-icon" onclick="toggleMenu()">
+                <span class="material-icons-sharp">menu</span>
+            </a>
+        </div>
+        <div class="hamburger-menu" id="hamburgerMenu">
+            <div>
+                <img class="profile" id="profileImage2" alt="Profile Photo" style="border-radius: 50%; height: 80px; width: 80px; margin-left: 70px;">
+                <br>
+                <div id="user-name" style="font-size: 15px;"></div>
+            </div>
+            <br>
+            <a href="#" style="display: flex; justify-content: left;">
+                <span class="material-icons-sharp">call</span>
+                <h3 style="margin-left: 5%;">Contact</h3>
+            </a>
+            <a href="login.html" style="display: flex; justify-content: left;">
+                <span class="material-icons-sharp">logout</span>
+
+                <h3 style="margin-left: 5%;">logout</h3>
+            </a>
+
+        </div>
+    </header>
+    <br><br>
+    <a href="chatbot.html" style="display: flex; position: fixed; bottom: 25px; right: 25px; z-index: 1;">
+        <img class="profile-photo1" src="chat.avif" alt="Profile Photo">
+    </a>
+        <main>
+        <center><img src="sasi.png" alt="" style="height: 150px; width: 56%;"></center>
+
+        <div style="padding-left:300px;">
+            <table>   
+               <caption style="text-align: left;"><b>III B.Tech II Semester</b></caption>
+               <tr>
+                   <th rowspan="2"> period/<br>DAY</th>
+                   <th>1</th>
+                   <th>2</th>
+                   <th>3</th>
+                   <th rowspan="2">12:00-1:00</th>
+                   <th>4</th>
+                   <th>5</th>
+                   <th>02:50-</th>
+                   <th>6</th>
+                   <th style="width: 13.2%;">7</th>
+               </tr><br>
+               <tr>
+                   <th>09:00-10:00</th>
+                   <th>10:00-11:00</th>
+                   <th>11:00-12:00</th>
+                   <th>01:00-01:50</th>
+                   <th>01:50-02:40</th>
+                   <th>02:50</th>
+                   <th>02:50-03:40</th>
+                   <th>03:40-04:30</th><br>
+       
+       
+               </tr>
+               <tr>
+                   <th>MONDAY</th>
+                   <td>CN</td>
+                   <td>SE</td>
+                   <td>MC</td>
+                   <th rowspan="6" >LUNCH<br>BREAK</th>
+                 
+                   <td colspan="5">CDC/CN LAB</td>
+                   
+               </tr>
+               <tr>
+                   <th>TUESDAY</th>
+                   <td>FDSP</td>
+                   <td>WP</td>
+                   <td>CN</td>
+                  
+                   <td colspan="5">CDC/SE LAB</td>
+                   
+               </tr>
+               <tr>
+                   <th>WEDNESDAY</th>
+                   <td colspan="2">SS</td>
+                   <td>EEFM</td>
+                   <td>SE</td>
+                   <td>WP</td>
+                   <th rowspan="4" style="background-color:rgb(115, 151, 242);">BREAK</th>
+                   <td colspan="2">CDC</td>
+                  
+               </tr>
+               <tr>
+                   <th>THURSDAY</th>
+                   <td>EEFM</td>
+                   <td>SE</td>
+                   <td>WP</td>
+                   <td>MC</td>
+                   <td>FDSP</td>
+                   <td>CN</td>
+                   <td>SS</td><br>
+               </tr>
+               <tr>
+                   <th>FRIDAY</th>
+                   <td>CN</td>
+                   <td>EEFM</td>
+                   <td>WP</td>
+                   <td>FDSP</td>
+                   <td>SE</td>
+                   <td>MC</td>
+                   <td>AB1</td><br>
+               </tr>
+               <tr>
+                   <th>SATURDAY</th>
+                   <td colspan="2">AB1</td>
+                   <td>FDSP</td>
+                   <td>WP</td>
+                   <td>CN</td>
+                   <td>EEFM</td>
+                   <td>SE</td>
+                       
+               </tr>
+           </table>
+           <br>
+           <table>
+               <tr>
+                   <th>Subject/Lab Code</th>
+                   <th>Name of the Subject</th>
+                   <th>Name of the Faculty</th>
+               </tr>
+               <tr>
+                   <td>21AMMAT5010</td>
+                   <td><b>EEFM:</b>Engineering Economics &amp; Financial Management</td>
+                   <td>Ms Kusuma Bathula</td>
+               </tr>
+               <tr>
+                   <td>21AMAMT5020</td>
+                   <td><b>CN:</b>Computer Networks</td>
+                   <td>Ms V Prema Latha
+                   </td>
+               </tr>
+               <tr>
+                   <td>21AMAMT5030</td>
+                   <td><b>SE:</b>Software Engineering</td>
+                   <td>Mr A Bharani Dharan</td>
+               </tr>
+               <td>21AMAMT504B</td>
+               <td><b>WP:</b>Web Programming(PE-1)</td>
+               <td>Mr M Gopinath Reddy</td>
+               </tr>   
+               </tr>
+                <td>21AIEC0505C</td>
+                <td><b>FDSP:</b>Fundamental of Digital Signal Processing(OE-1)</td>
+                <td>Mr G Kanaka Rao</td>
+                </tr>   
+       
+             <td>21AMAML5060</td>
+             <td><b>CN LAB:</b>Computer Networks Lab (Room-No: 22311)</td>
+             <td>Ms V Prema Latha/ Mr P C S Nagendra Setty</td>
+             </tr>   
+       
+             <td>21AMAML5070</td>
+             <td><b>SE LAB:</b>Software engineering Lab (Room-No: 22311)</td>
+              <td>Mr A Bharani Dharan/Mr M Gopinath Reddy</td>
+              </tr>   
+              </tr>
+              <td rowspan="1">21AMAMSC5080</td>
+              <td><b>SOC</b>(SS &amp; AB1):<br><b>SS:Soft Skills</b><br><b>AB!:</b>Aptitute Builder 1</td>
+              <td>Ms B V Pujitha/ Dr A Praveena<br> Mr J V Ramaiah</td>
+              </tr> 
+           </tr>
+           <td>21AMAMMC5090</td>
+           <td><b>MC:</b> Intellectual Property Rights</td>
+           <td>Mr M Sudheer Kumar</td>
+           </tr>   
+            </tr>
+       
+              <td colspan="2"><b>Class In-Charge</b></td>
+              <td>Mr M Gopinath Reddy</td>
+              </tr>   
+       
+           </table>
+       </div><br><br><br>
+  
+       <div style="padding-left: 200px;">
+       <ul type="none"><b>
+          <li> Time Table In-Charge</li>
+           <li> Time Table Coordinator</li>
+           <li>  Head of the Department</li>
+           <li> Principal</li>
+       </b>
+       </ul>
+      </div>
+  </body>
+  
+        <div style="padding-left:300px;">
+          <table>   
+             <caption style="text-align: left;"><b>III B.Tech II Semester</b></caption>
+             <tr>
+                 <th rowspan="2"> period/<br>DAY</th>
+                 <th>1</th>
+                 <th>2</th>
+                 <th>3</th>
+                 <th rowspan="2">12:00-1:00</th>
+                 <th>4</th>
+                 <th>5</th>
+                 <th>02:50-</th>
+                 <th>6</th>
+                 <th style="width: 13.2%;">7</th>
+             </tr><br>
+             <tr>
+                 <th>09:00-10:00</th>
+                 <th>10:00-11:00</th>
+                 <th>11:00-12:00</th>
+                 <th>01:00-01:50</th>
+                 <th>01:50-02:40</th>
+                 <th>02:50</th>
+                 <th>02:50-03:40</th>
+                 <th>03:40-04:30</th><br>
+     
+     
+             </tr>
+             <tr>
+                 <th>MONDAY</th>
+                 <td>CN</td>
+                 <td>SE</td>
+                 <td>MC</td>
+                 <th rowspan="6" >LUNCH<br>BREAK</th>
+               
+                 <td colspan="5">CDC/CN LAB</td>
+                 
+             </tr>
+             <tr>
+                 <th>TUESDAY</th>
+                 <td>FDSP</td>
+                 <td>WP</td>
+                 <td>CN</td>
+                
+                 <td colspan="5">CDC/SE LAB</td>
+                 
+             </tr>
+             <tr>
+                 <th>WEDNESDAY</th>
+                 <td colspan="2">SS</td>
+                 <td>EEFM</td>
+                 <td>SE</td>
+                 <td>WP</td>
+                 <th rowspan="4" style="background-color:rgb(115, 151, 242);">BREAK</th>
+                 <td colspan="2">CDC</td>
+                
+             </tr>
+             <tr>
+                 <th>THURSDAY</th>
+                 <td>EEFM</td>
+                 <td>SE</td>
+                 <td>WP</td>
+                 <td>MC</td>
+                 <td>FDSP</td>
+                 <td>CN</td>
+                 <td>SS</td><br>
+             </tr>
+             <tr>
+                 <th>FRIDAY</th>
+                 <td>CN</td>
+                 <td>EEFM</td>
+                 <td>WP</td>
+                 <td>FDSP</td>
+                 <td>SE</td>
+                 <td>MC</td>
+                 <td>AB1</td><br>
+             </tr>
+             <tr>
+                 <th>SATURDAY</th>
+                 <td colspan="2">AB1</td>
+                 <td>FDSP</td>
+                 <td>WP</td>
+                 <td>CN</td>
+                 <td>EEFM</td>
+                 <td>SE</td>
+                     
+             </tr>
+         </table>
+         <br>
+         <table>
+             <tr>
+                 <th>Subject/Lab Code</th>
+                 <th>Name of the Subject</th>
+                 <th>Name of the Faculty</th>
+             </tr>
+             <tr>
+                 <td>21AMMAT5010</td>
+                 <td><b>EEFM:</b>Engineering Economics &amp; Financial Management</td>
+                 <td>Ms Kusuma Bathula</td>
+             </tr>
+             <tr>
+                 <td>21AMAMT5020</td>
+                 <td><b>CN:</b>Computer Networks</td>
+                 <td>Ms V Prema Latha
+                 </td>
+             </tr>
+             <tr>
+                 <td>21AMAMT5030</td>
+                 <td><b>SE:</b>Software Engineering</td>
+                 <td>Mr A Bharani Dharan</td>
+             </tr>
+             <td>21AMAMT504B</td>
+             <td><b>WP:</b>Web Programming(PE-1)</td>
+             <td>Mr M Gopinath Reddy</td>
+             </tr>   
+             </tr>
+              <td>21AIEC0505C</td>
+              <td><b>FDSP:</b>Fundamental of Digital Signal Processing(OE-1)</td>
+              <td>Mr G Kanaka Rao</td>
+              </tr>   
+     
+           <td>21AMAML5060</td>
+           <td><b>CN LAB:</b>Computer Networks Lab (Room-No: 22311)</td>
+           <td>Ms V Prema Latha/ Mr P C S Nagendra Setty</td>
+           </tr>   
+     
+           <td>21AMAML5070</td>
+           <td><b>SE LAB:</b>Software engineering Lab (Room-No: 22311)</td>
+            <td>Mr A Bharani Dharan/Mr M Gopinath Reddy</td>
+            </tr>   
+            </tr>
+            <td rowspan="1">21AMAMSC5080</td>
+            <td><b>SOC</b>(SS &amp; AB1):<br><b>SS:Soft Skills</b><br><b>AB!:</b>Aptitute Builder 1</td>
+            <td>Ms B V Pujitha/ Dr A Praveena<br> Mr J V Ramaiah</td>
+            </tr> 
+         </tr>
+         <td>21AMAMMC5090</td>
+         <td><b>MC:</b> Intellectual Property Rights</td>
+         <td>Mr M Sudheer Kumar</td>
+         </tr>   
+          </tr>
+     
+            <td colspan="2"><b>Class In-Charge</b></td>
+            <td>Mr M Gopinath Reddy</td>
+            </tr>   
+     
+         </table>
+     </div><br><br><br>
+
+     <div style="padding-left: 200px;">
+     <ul type="none"><b>
+        <li> Time Table In-Charge</li>
+         <li> Time Table Coordinator</li>
+         <li>  Head of the Department</li>
+         <li> Principal</li>
+     </b>
+     </ul>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

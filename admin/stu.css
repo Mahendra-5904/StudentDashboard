@@ -1,0 +1,24 @@
+.container{
+    display: flex;
+    justify-content: center;
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 400px;
+    height: 600px;
+    position: relative;
+    background: transparent;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white; 
+  }
+.container .material-icons-sharp{
+    font-size: 90px;
+}
+.container{
+    color: black;
+}

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="stu.css">
+    <style>
+        .profile-photo1 {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%; 
+            margin-right: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo" title="University Management System">
+            <h2>AI<span class="danger">&</span>ML</h2>
+        </div>
+        <div class="navbar">
+            <a href="index.html">
+                <span class="material-icons-sharp">home</span>
+                <h3>Home</h3>
+            </a>
+            <a href="time.html">
+                <span class="material-icons-sharp">today</span>
+                <h3>Time Table</h3>
+            </a> 
+            <a href="stu.html" class="active">
+                <span class="material-icons-sharp">grid_view</span>
+                <h3>Student Details</h3>
+            </a>
+            <a href="faculty.html">
+                <span class="material-icons-sharp">person</span>
+                <h3>Faculty Details</h3>
+            </a>
+            <a href="achindex.html">
+                <span class="material-icons-sharp">&#127894</span>
+                <h3>Acheivements</h3>
+            </a>
+            <a href="#" class="menu-icon" onclick="toggleMenu()">
+                <span class="material-icons-sharp">menu</span>
+            </a>
+        </div>
+        <div class="hamburger-menu" id="hamburgerMenu">
+            <div>
+                <img class="profile" id="profileImage2" alt="Profile Photo" style="border-radius: 50%; height: 80px; width: 80px; margin-left: 70px;">
+                <br>
+                <div id="user-name" style="font-size: 15px;"></div>
+            </div>
+            <br>
+            <a href="#" style="display: flex; justify-content: left;">
+                <span class="material-icons-sharp">call</span>
+                <h3 style="margin-left: 5%;">Contact</h3>
+            </a>
+            <a href="login.html" style="display: flex; justify-content: left;">
+                <span class="material-icons-sharp">logout</span>
+
+                <h3 style="margin-left: 5%;">logout</h3>
+            </a>
+
+        </div>  
+    </header>
+    <br><br>
+    <a href="chatbot.html" style="display: flex; position: fixed; bottom: 25px; right: 25px; z-index: 1;">
+        <img class="profile-photo1" src="chat.avif" alt="Profile Photo">
+    </a>
+    <main>
+        <div id="user-details" class="container" style="display: inline; text-align: center; font-size: 20px; color: white; padding-top: 125px;">
+            <!-- <img class="profile" id="profileImage1" src="" alt="Profile Photo" style="border-radius: 50%; height: 100px; width: 100px; margin-left: 150px;"> -->
+            <br>
+        </div>
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+    fetchUserDetails();
+
+    function fetchUserDetails() {
+        var user = JSON.parse(localStorage.getItem('user'));
+
+        if (user) {
+            fetchUserDetailsByEmail(user.email);
+        } else {
+            console.error('User information not found in local storage.');
+        }
+    }
+
+    // Function to fetch user details by email
+    function fetchUserDetailsByEmail(email) {
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'http://localhost:4000/getUserDetails', true); // Modify the route
+        xhr.setRequestHeader('Content-Type', 'application/json');
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4) {
+                if (xhr.status == 200) {
+                    var response = JSON.parse(xhr.responseText);
+                    var userDetails = response.user;
+
+                    // Display user details in the specified container
+                    displayUserDetails(userDetails);
+                } else {
+                    console.error('Error fetching user details:', xhr.status, xhr.statusText);
+                }
+            }
+        };
+
+        var data = JSON.stringify({ email: email });
+        xhr.send(data);
+    }
+
+    // Function to display user details
+    function displayUserDetails(userDetails) {
+        // Access the container element
+        var container = document.getElementById('user-details');
+
+        // Create HTML elements to display user details
+        function createParagraph(label, value) {
+            var paragraph = document.createElement('p');
+
+            // Apply styles to both label and value
+            var strong = document.createElement('strong');
+            strong.textContent = label;
+            strong.style.color = 'black'; // Set the color to black
+            strong.style.fontWeight = 'bold'; // Set the font weight to bold
+            paragraph.appendChild(strong);
+
+            // Add a line break
+            paragraph.appendChild(document.createElement('br'));
+
+            var span = document.createElement('span');
+            span.textContent = value;
+            span.style.color = 'black'; // Set the color to black
+            paragraph.appendChild(span);
+
+            return paragraph;
+        }
+
+        // Create and append elements to the container
+        container.appendChild(createParagraph('Name:', userDetails.name)).style.marginBottom = '15px';
+        container.appendChild(createParagraph('Registration Number:', userDetails.regd)).style.marginBottom = '15px';
+        container.appendChild(createParagraph('Mobile Number:', userDetails.mobile)).style.marginBottom = '15px';
+        container.appendChild(createParagraph('Email:', userDetails.email)).style.marginBottom = '15px';
+
+        // Display CGPA if available
+        if (userDetails.cgpa !== undefined) {
+            container.appendChild(createParagraph('CGPA:', userDetails.cgpa)).style.marginBottom = '15px';
+        } else {
+            container.appendChild(createParagraph('CGPA:', 'Not available')).style.marginBottom = '15px';
+        }
+
+        // Set profile image
+        setProfileImage(userDetails.profileImage);
+    }
+
+    function setProfileImage(profileImageSrc) {
+    var container = document.getElementById('user-details');
+
+    var profileImageElement = document.createElement('img');
+    profileImageElement.src = profileImageSrc;
+    profileImageElement.alt = 'Profile Photo';
+    profileImageElement.style.borderRadius = '50%';
+    profileImageElement.style.height = '100px';
+    profileImageElement.style.width = '100px';
+    profileImageElement.style.position = 'absolute'; // Position the image absolutely
+    profileImageElement.style.top = '40px'; // Adjust the top position to be above the container
+    profileImageElement.style.left = '50%'; // Center the image horizontally
+    profileImageElement.style.transform = 'translateX(-50%)'; // Adjust for centering
+    container.appendChild(profileImageElement);
+}
+
+});
+
+    </script>
+    <script src="script.js"></script>
+    </body>
+</html>

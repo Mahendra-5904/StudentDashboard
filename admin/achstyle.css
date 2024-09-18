@@ -1,0 +1,206 @@
+/* Reset styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+/* Main container styles */
+main {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Item styles */
+.item {
+  width: 200px;
+  height: 300px;
+  list-style-type: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  background-position: center;
+  background-size: cover;
+  border-radius: 20px;
+  box-shadow: 0 20px 30px rgba(255, 255, 255, 0.3) inset;
+  transition: transform 0.1s, left 0.75s, top 0.75s, width 0.75s, height 0.75s;
+}
+
+/* Special styles for first and second items */
+.item:nth-child(1),
+.item:nth-child(2) {
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  transform: none;
+  border-radius: 0;
+  box-shadow: none;
+  opacity: 1;
+}
+
+/* Positioning styles for remaining items */
+.item:nth-child(3) {
+  left:  100% - 110px; /* Starting from  100% */
+}
+.item:nth-child(4) {
+  left: calc( 100% + 220px  );
+}
+.item:nth-child(5) {
+  left: calc( 100% + 330px );
+}
+.item:nth-child(6) {
+  left: calc( 100%  );
+}
+.item:nth-child(7) {
+  left: calc( 100%  );
+}
+.item:nth-child(8) {
+  left: calc( 100%  );
+}
+.item:nth-child(9) {
+  left: calc( 100%  );
+}
+.item:nth-child(10) {
+  left: calc( 100% ); /* Starting from  100% */
+}
+.item:nth-child(11) {
+  left: calc( 100%  );
+}
+.item:nth-child(12) {
+  left: calc( 100%  );
+}
+
+
+/* Content styles */
+.content {
+  width: min(30vw, 500px);
+  position: absolute;
+  top: 50%;
+  right: 2rem; /* Adjusted from left to right */
+  transform: translateY(-50%);
+  font: 400 1.7rem helvetica, sans-serif;
+  color: rgb(5, 0, 0);
+  -webkit-text-stroke-width: 0.4px;
+  -webkit-text-stroke-color: rgb(226, 249, 142);
+
+  opacity: 0;
+  display: none;
+  height: 600px;
+}
+
+/* Title styles */
+.content .title {
+  font-family: "arial-black";
+  text-transform: uppercase;
+  text-align: left; /* Align title to the left */
+}
+
+/* Description styles */
+.content .description {
+  line-height: 1.7;
+  margin: 1rem 0 1.5rem;
+  font-size: 1.7rem;
+  -webkit-text-stroke-width: 0.1px;
+  -webkit-text-stroke-color: white;
+
+  text-align: left; /* Align description to the left */
+}
+
+/* Button styles */
+.content button {
+  width: fit-content;
+  align-items: end;
+  background-color: rgba(0, 0, 0, 0.1);
+  color: white;
+  border: 2px solid white;
+  border-radius: 0.25rem;
+  padding: 0.75rem;
+  cursor: pointer;
+  text-align: right; /* Align button text to the left */
+}
+
+
+/* Animation for showing content */
+.item:nth-of-type(2) .content {
+  display: block;
+  text-align: right;
+  animation: show 0.75s ease-in-out 0.3s forwards;
+}
+p,h2{
+  color: white;
+}
+
+/* Keyframes for animation */
+@keyframes show {
+  0% {
+    filter: blur(5px);
+    transform: translateY(calc(-50% + 75px));
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+/* Navigation styles */
+.nav {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  user-select: none;
+}
+
+/* Button styles within navigation */
+.nav .btn {
+  background-color: rgba(255, 255, 255, 0.5);
+  color: rgba(0, 0, 0, 0.7);
+  border: 2px solid rgba(0, 0, 0, 0.6);
+  margin: 0 0.25rem;
+  padding: 0.75rem;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* Hover effect for navigation buttons */
+.nav .btn:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Media queries for responsive design */
+@media (max-width: 900px) {
+  .content .title {
+    font-size: 1rem;
+  }
+  .content .description {
+    font-size: 0.7rem;
+  }
+  .content button {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 650px) {
+  .content .title {
+    font-size: 0.9rem;
+  }
+  .content .description {
+    font-size: 0.65rem;
+  }
+  .content button {
+    font-size: 0.7rem;
+  }
+}

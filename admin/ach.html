@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Achievements</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+    <style>
+        .profile-photo1 {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%; /* Creates a circular shape */
+            margin-right: 20px; /* Add some spacing between photo and content */
+        }
+    </style>
+
+</head>
+<body>
+    <header>
+        <div class="logo" title="University Management System">
+            <h2>AI<span class="danger">&</span>ML</h2>
+        </div>
+        <div class="navbar">
+            <a href="index.html">
+                <span class="material-icons-sharp">home</span>
+                <h3>Home</h3>
+            </a>
+            <a href="time.html">
+                <span class="material-icons-sharp">today</span>
+                <h3>Time Table</h3>
+            </a> 
+            <a href="stu.html">
+                <span class="material-icons-sharp">grid_view</span>
+                <h3>Student Details</h3>
+            </a>
+            <a href="faculty.html">
+                <span class="material-icons-sharp">person</span>
+                <h3>Faculty Details</h3>
+            </a>
+            <a href="ach.html" class="active">
+                <span class="material-icons-sharp">&#127894</span>
+                <h3>Acheivements</h3>
+            </a>
+            <a href="#" class="menu-icon" onclick="toggleMenu()">
+                <span class="material-icons-sharp">menu</span>
+            </a>
+        </div>
+        <div class="hamburger-menu" id="hamburgerMenu">
+            <div>
+                <img class="profile" id="profileImage2" alt="Profile Photo" style="border-radius: 50%; height: 80px; width: 80px; margin-left: 70px;">
+                <br>
+                <div id="user-name" style="font-size: 15px;"></div>
+            </div>
+            <br>
+            <a href="#" style="display: flex; justify-content: left;">
+                <span class="material-icons-sharp">call</span>
+                <h3 style="margin-left: 5%;">Contact</h3>
+            </a>
+            <a href="login.html" style="display: flex; justify-content: left;">
+                <span class="material-icons-sharp">logout</span>
+
+                <h3 style="margin-left: 5%;">logout</h3>
+            </a>
+
+        </div>
+    </header>
+    <br><br>
+    <main>
+        <a href="#" style="display: flex; position: fixed; bottom: 25px; right: 25px; z-index: 1;">
+            <img class="profile-photo1" src="chat.avif" alt="Profile Photo">
+        </a>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

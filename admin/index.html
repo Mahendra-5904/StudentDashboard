@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <style>
+        #imageContainer {
+            width: 90%;
+            height: 650px;
+            overflow: hidden;
+        }
+
+        .image {
+            width: 100%;
+            height: 100%;
+            display: none;
+        }
+        .profile-photo1 {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%; /* Creates a circular shape */
+            margin-right: 20px; /* Add some spacing between photo and content */
+        }
+    </style>    
+    <link rel="shortcut icon" href="./images/logo.png">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <header>
+        <div class="logo" title="University Management System">
+            <h2>AI<span class="danger">&</span>ML</h2>
+        </div>
+        <div class="navbar">
+            <a href="index.html" class="active">
+                <span class="material-icons-sharp">home</span>
+                <h3>Home</h3>
+            </a>
+            <a href="time.html" onclick="timeTableAll()">
+                <span class="material-icons-sharp">today</span>
+                <h3>Time Table</h3>
+            </a> 
+            <a href="stu.html">
+                <span class="material-icons-sharp">grid_view</span>
+                <h3>Student Details</h3>
+            </a>
+            <a href="faculty.html">
+                <span class="material-icons-sharp">person</span>
+                <h3>Faculty Details</h3>
+            </a>
+            <a href="achindex.html">
+                <span class="material-icons-sharp">&#127894</span>
+                <h3>Acheivements</h3>
+            </a>
+            <a href="#" class="menu-icon" onclick="toggleMenu()">
+                <span class="material-icons-sharp">menu</span>
+            </a>
+        </div>
+        <div class="hamburger-menu" id="hamburgerMenu">
+            <div>
+                <img class="profile" id="profileImage2" alt="Profile Photo" style="border-radius: 50%; height: 80px; width: 80px; margin-left: 70px;">
+                <br>
+                <div id="user-name" style="font-size: 15px;"></div>
+            </div>
+            <br>
+            <a href="#" style="display: flex; justify-content: left;">
+                <span class="material-icons-sharp">call</span>
+                <h3 style="margin-left: 5%;">Contact</h3>
+            </a>
+            <a href="login.html" style="display: flex; justify-content: left;">
+                <span class="material-icons-sharp">logout</span>
+
+                <h3 style="margin-left: 5%;">logout</h3>
+            </a>
+
+        </div>
+    </header>
+    <br><br>
+    <a href="chatbot.html" style="display: flex; position: fixed; bottom: 25px; right: 25px; z-index: 1;">
+        <img class="profile-photo1" src="chat.avif" alt="Profile Photo">
+    </a>
+    <div style="display: flex; justify-content: center;">
+    <div id="imageContainer" >
+        <img src="1.jpg" alt="Image 1" class="image">
+        <img src="2.jpg" alt="Image 2" class="image">
+        <img src="3.jpg" alt="Image 3" class="image">
+        <img src="bg.jpg" alt="Image 3" class="image">
+        <!-- Add more images as needed -->
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var imageIndex = 0;
+            var images = document.querySelectorAll('.image');
+            var intervalTime = 2000; // Change the interval time in milliseconds (2 seconds in this example)
+
+            function changeImage() {
+                images.forEach(function (image) {
+                    image.style.display = 'none';
+                });
+
+                images[imageIndex].style.display = 'block';
+                imageIndex = (imageIndex + 1) % images.length;
+            }
+
+            // Initial call
+            changeImage();
+
+            // Set up interval for changing images
+            setInterval(changeImage, intervalTime);
+        });
+    </script>
+    </div><br>
+    <h1 style="padding-left: 20%;"> Department of Artificial intelligence and machine learning</h1>
+
+    <div class="container">
+        <aside>
+            <!-- <h3>About</h3>
+            <p>     Artificial Intelligence & Machine Learning (AI&ML) is an emerging program that is quickly extending its limits to variety of fields like medical services, security, entertainment, education, autonomous transportation, intelligent robots, space exploration, image processing, stock exchange, prediction problems and many more. Artificial intelligence is an innovation that permits a system to mimic human behaviour which is concerned with creating intelligent machines. Machine learning (ML) is an application of AI that tries to build self-learning ability into the machines. AI&ML is the significant area of digital world which has created plenty of job opportunities. 
+                The department of Artificial Intelligence & Machine Learning (AI&ML) was established in the year of 2021with an intake of 60 students. The department has outstanding laboratories and qualified faculty. The department conducts programs like guest lectures, seminars, workshops, project expos, and many more technical events to nurture students in the domain of AI and excel their careers. The department also conducts skill improvement programs for upskilling the students to get ready for the needs of industry along with the academics. </p>
+            <div class="profile">
+            </div> -->
+        </aside>
+
+        <main>
+            <div class="slider" >
+
+            </div>
+            <h1>Previous Semester Percentages</h1>
+            <h3>II B.Tech I Semester</h3>
+            <div class="subjects">
+                <div class="eg">
+                    <span class="material-icons-sharp">architecture</span>
+                    <h3>Probability and statistics</h3>
+                    <br>
+                    <h2>69/69</h2>
+                    <div class="progress">
+                        <svg><circle cx="38" cy="38" r="36"></circle></svg>
+                        <div class="number"><p>100%</p></div>
+                    </div>
+                </div>
+                <div class="mth">
+                    <span class="material-icons-sharp">functions</span>
+                    <h3>Artifical Intelligence</h3>
+                    <br><br>
+                    <h2>68/69</h2>
+                    <div class="progress">
+                        <svg><circle cx="38" cy="38" r="36"></circle></svg>
+                        <div class="number"><p>99%</p></div>
+                    </div>
+                </div>
+                <div class="cs">
+                    <span class="material-icons-sharp">computer</span>
+                    <h3>operating Systems</h3>
+                    <br><br>
+                    <h2>67/69</h2>
+                    <div class="progress">
+                        <svg><circle cx="38" cy="38" r="36"></circle></svg>
+                        <div class="number"><p>97%</p></div>
+                    </div>
+                </div>
+                <div class="cg">
+                    <span class="material-icons-sharp">dns</span>
+                    <h3>Database Management Systems</h3>
+                    <br>
+                    <h2>68/69</h2>
+                    <div class="progress">
+                        <svg><circle cx="38" cy="38" r="36"></circle></svg>
+                        <div class="number"><p>99%</p></div>
+                    </div>
+                </div>
+                <div class="net">
+                    <span class="material-icons-sharp">router</span>
+                    <h3>Analog and Digital Electronics</h3>
+                    <br>
+                    <h2>62/69</h2>
+                    <div class="progress">
+                        <svg><circle cx="38" cy="38" r="36"></circle></svg>
+                        <div class="number"><p>90%</p></div>
+                    </div>
+                </div>
+            </div>
+            <br><br>
+            <h3>III B.Tech I Semester</h3>
+            <div class="subjects">
+                <div class="a">
+                    <span class="material-icons-sharp">architecture</span>
+                    <h3>Software Engineering</h3>
+                    <br><br>
+                    <h2>70/70</h2>
+                    <div class="progress">
+                        <svg><circle cx="38" cy="38" r="36"></circle></svg>
+                        <div class="number"><p>100%</p></div>
+                    </div>
+                </div>
+                <div class="b">
+                    <span class="material-icons-sharp">functions</span>
+                    <h3>Computer Networks</h3>
+                    <br><br>
+                    <h2>70/70</h2>
+                    <div class="progress">
+                        <svg><circle cx="38" cy="38" r="36"></circle></svg>
+                        <div class="number"><p>93%</p></div>
+                    </div>
+                </div>
+                <div class="c">
+                    <span class="material-icons-sharp">computer</span>
+                    <h3>Web Programming</h3>
+                    <br><br>
+                    <h2>69/70</h2>
+                    <div class="progress">
+                        <svg><circle cx="38" cy="38" r="36"></circle></svg>
+                        <div class="number"><p>99%</p></div>
+                    </div>
+                </div>
+                <div class="d">
+                    <span class="material-icons-sharp">dns</span>
+                    <h3>Fundametals of digital signal processing      </h3>
+                    <h2>55/70</h2>
+                    <div class="progress">
+                        <svg><circle cx="38" cy="38" r="36"></circle></svg>
+                        <div class="number"><p>78%</p></div>
+                    </div>
+                </div>
+                <div class="e">
+                    <span class="material-icons-sharp">router</span>
+                    <h3>Engineering Economics and Financial Management</h3>
+                    <h2>70/70</h2>
+                    <div class="progress">
+                        <svg><circle cx="38" cy="38" r="36"></circle></svg>
+                        <div class="number"><p>100%</p></div>
+                    </div>
+                </div>
+                
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
